@@ -1,9 +1,35 @@
 package main
 
-import "github.com/roger-russel/deploy-calendar/pkg/webserver"
+import (
+	"log"
+	"os"
+	"strconv"
+
+	"github.com/roger-russel/deploy-calendar/pkg/logger"
+	"github.com/roger-russel/deploy-calendar/pkg/webserver"
+)
 
 func main() {
 
-	webserver.Start(8080, false)
+	initLogger()    // Start logger
+	initWebserver() // Start API Webservice
+
+}
+
+func initLogger() {
+	logger.Init("api-calendar")
+}
+
+func initWebserver() {
+
+	apiPort, err := strconv.Atoi(os.Getenv("API_PORT"))
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	httpCompress := os.Getenv("API_HTTP_COMPRESS") == "true"
+
+	webserver.Start(apiPort, httpCompress)
 
 }

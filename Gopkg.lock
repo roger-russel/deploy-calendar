@@ -2,6 +2,14 @@
 
 
 [[projects]]
+  digest = "1:ebdeb808fe6861df1eaa262006a879bdbed826dd51c343bd5e681045e194997c"
+  name = "github.com/google/logger"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "7047ffcb7339f3f59be32de74a92217cb17cb40c"
+  version = "v1.0.1"
+
+[[projects]]
   digest = "1:aaa8e0e7e35d92e21daed3f241832cee73d15ca1cd3302ba3843159a959a7eac"
   name = "github.com/klauspost/compress"
   packages = [
@@ -41,9 +49,24 @@
   revision = "e5f51c11919d4f66400334047b897ef0a94c6f3c"
   version = "v20180529"
 
+[[projects]]
+  branch = "master"
+  digest = "1:1a87381c83ad6a2ec045d3d72f3fe742681f3f075d549199d9c5fedbaeb3e3fe"
+  name = "golang.org/x/sys"
+  packages = [
+    "windows",
+    "windows/registry",
+    "windows/svc/eventlog",
+  ]
+  pruneopts = "UT"
+  revision = "d89cdac9e8725f2aefce25fcbfef41134c9ad412"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  input-imports = ["github.com/valyala/fasthttp"]
+  input-imports = [
+    "github.com/google/logger",
+    "github.com/valyala/fasthttp",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1

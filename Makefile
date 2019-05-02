@@ -14,3 +14,11 @@ compile-api-queue:
 .PHONY: compile-consumer-queue
 compile-consumer-queue:
 	@go build -o ./build/consumer-queue ./cmd/consumer/queue/main.go
+
+.PHONY: packages
+packages:
+	@dep ensure
+
+.PHONY: dev
+dev:
+	@realize start
