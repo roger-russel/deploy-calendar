@@ -2,27 +2,11 @@
 
 A easy view when a deploy was made.
 
-## How DEV
+## Contributing
 
-![Arch](doc/images/arch.png)
+Feel free to contributing and send sugestions S2.
 
-### IDE Dependencies
+For sugestion just open a Issue, but if you wanna contibute with code then read [this](./doc/contributing.md).
 
-* [Editorconfig](https://editorconfig.org/)
+## Installing
 
-### DEV Dependencies
-
-* [Realize](https://github.com/oxequa/realize), a Golang Task Runner;
-* [Dep](https://golang.github.io/dep/), a Golang package manager, "go mod" sucks;
-
-### DEV Enviromoment
-
-```sh
-make packages
-```
-
-#### DEV Running 
-
-```sh
-make dev
-```
