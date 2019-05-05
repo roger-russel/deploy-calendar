@@ -7,8 +7,7 @@ schema:
   - name: api-calendar
     path: cmd/api/calendar
     env:
-      API_PORT: aaaa
-      API_HTTP_COMPRESS: false
+      API_PORT: 8080
       LOGGER_VERBOSE: true
       LOGGER_PATH: ../../../log
     commands: 
@@ -33,7 +32,6 @@ schema:
     path: cmd/api/queue
     env:
       API_PORT: 8081
-      API_HTTP_COMPRESS: false
       LOGGER_VERBOSE: true
       LOGGER_PATH: ../../../log
     commands:

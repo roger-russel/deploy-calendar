@@ -2,6 +2,25 @@
 
 
 [[projects]]
+  digest = "1:5aa2085cb25c43edeb1383c951ceb658584205a285bd167abf8ff9c228c709e0"
+  name = "github.com/fasthttp/router"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "492bc22d37eb33b6fd5f3a0899c27b7db9702ccf"
+  version = "v0.3.3"
+
+[[projects]]
+  digest = "1:76442978bee5acb70d7138a04be5418b83e40b3e7cbed91d2213e5a59ece3af8"
+  name = "github.com/fasthttp/session"
+  packages = [
+    ".",
+    "memory",
+  ]
+  pruneopts = "UT"
+  revision = "cd0ba2246887185a608c4d1ebee0cf722c5520a4"
+  version = "v1.0.3"
+
+[[projects]]
   digest = "1:ebdeb808fe6861df1eaa262006a879bdbed826dd51c343bd5e681045e194997c"
   name = "github.com/google/logger"
   packages = ["."]
@@ -28,6 +47,41 @@
   pruneopts = "UT"
   revision = "05a8198c0f5a27739aec358908d7e12c64ce6eb7"
   version = "v1.2.1"
+
+[[projects]]
+  digest = "1:5e73b34a27d827212102605789de00bd411b2e434812133c83935fe9897c75e1"
+  name = "github.com/philhofer/fwd"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "bb6d471dc95d4fe11e432687f8b70ff496cf3136"
+  version = "v1.0.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:8f73d7370186730b53c0dc270b584e829976593514f6453842ecdf4e724fc70b"
+  name = "github.com/savsgio/dictpool"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "a2279830315ee95f2dab3a25102406deb47f5319"
+
+[[projects]]
+  branch = "master"
+  digest = "1:520fc9eb1a746dd9f10651b858e4acf305af77203f01216afdb7d15d901c0e9f"
+  name = "github.com/savsgio/gotils"
+  packages = [
+    ".",
+    "dao",
+  ]
+  pruneopts = "UT"
+  revision = "e36d23089e10bf7a3a9f94271ba264d08e35a04c"
+
+[[projects]]
+  digest = "1:c97e8a5e5c435c3287f581cdb4441ba34577ec6ead8422bfedafa6269af7abf6"
+  name = "github.com/tinylib/msgp"
+  packages = ["msgp"]
+  pruneopts = "UT"
+  revision = "af6442a0fcf6e2a1b824f70dd0c734f01e817751"
+  version = "v1.1.0"
 
 [[projects]]
   digest = "1:c468422f334a6b46a19448ad59aaffdfc0a36b08fdcc1c749a0b29b6453d7e59"
@@ -65,6 +119,9 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/fasthttp/router",
+    "github.com/fasthttp/session",
+    "github.com/fasthttp/session/memory",
     "github.com/google/logger",
     "github.com/valyala/fasthttp",
   ]

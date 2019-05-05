@@ -5,6 +5,7 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/roger-russel/deploy-calendar/internal/api/calendar/router"
 	"github.com/roger-russel/deploy-calendar/pkg/logger"
 	"github.com/roger-russel/deploy-calendar/pkg/webserver"
 )
@@ -28,8 +29,8 @@ func initWebserver() {
 		log.Fatal(err)
 	}
 
-	httpCompress := os.Getenv("API_HTTP_COMPRESS") == "true"
+	apiRouter := router.API()
 
-	webserver.Start(apiPort, httpCompress)
+	webserver.Start(apiPort, apiRouter)
 
 }
