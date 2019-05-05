@@ -3,9 +3,9 @@ package webserver
 import (
 	"flag"
 	"fmt"
-	"log"
 
 	"github.com/fasthttp/router"
+	"github.com/google/logger"
 	"github.com/valyala/fasthttp"
 )
 
@@ -17,6 +17,6 @@ func Start(port int, apiRouter *router.Router) {
 	flag.Parse()
 
 	if err := fasthttp.ListenAndServe(*addr, apiRouter.Handler); err != nil {
-		log.Fatalf("Error in ListenAndServe: %s", err)
+		logger.Fatalf("Error in ListenAndServe: %s", err)
 	}
 }
