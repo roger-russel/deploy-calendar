@@ -24,7 +24,7 @@ How contribute with this project is very easy.
 
 ## Arch Overview
 
-![Arch](doc/images/arch.png)
+![Arch](images/arch.png)
 
 ## Start Coding
 
