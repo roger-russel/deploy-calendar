@@ -17,6 +17,10 @@ How contribute with this project is very easy.
 * [Realize](https://github.com/oxequa/realize), a Golang Task Runner;
 * [Dep](https://golang.github.io/dep/), a Golang package manager, "go mod" sucks;
 
+## Arch Dependencies(
+
+* [Localstack](https://github.com/localstack/localstack), An aws stack provider for development offilne.
+
 ## DEV Designs
 
 * [Solid](https://scotch.io/bar-talk/s-o-l-i-d-the-first-five-principles-of-object-oriented-design), please adapt class to package and let it go;
