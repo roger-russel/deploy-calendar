@@ -7,5 +7,9 @@ import c "github.com/roger-russel/deploy-calendar/internal/api/calendar/controll
 func API() *router.Router {
 	r := router.New()
 	r.GET("/", c.Index)
+
+	// Auth Routes
+	r.POST("/signin", c.Signin)
+
 	return r
 }

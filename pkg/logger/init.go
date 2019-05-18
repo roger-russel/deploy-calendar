@@ -27,6 +27,6 @@ func Init(logFileName string) {
 
 	defer logger.Init(logFileName, *verbose, true, lf).Close()
 
-	logger.Info("Starting Now")
+	defer Info("Starting Now")
 
 }
