@@ -4,15 +4,14 @@ import (
 	"flag"
 	"fmt"
 	"os"
-
-	"github.com/google/logger"
 )
 
 var verbose = flag.Bool("verbose", os.Getenv("LOGGER_VERBOSE") == "true", "print info level logs to stdout")
 
+var lf *os.File
+
 //Init requires full LogPath
 func Init(logFileName string) {
-
 	flag.Parse()
 
 	logFullPath := fmt.Sprintf("%s/%s.log", os.Getenv("LOGGER_PATH"), logFileName)
@@ -25,8 +24,6 @@ func Init(logFileName string) {
 
 	defer lf.Close()
 
-	defer logger.Init(logFileName, *verbose, true, lf).Close()
-
-	defer Info("Starting Now")
+	Info("Starting Now")
 
 }

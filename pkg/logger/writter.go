@@ -19,7 +19,19 @@ type log struct {
 	//	Context interface `json:"context,omitempty"`
 }
 
-func print(lvl string, message string) {
+func switchType(any interface{}, lvl string) {
+
+	switch v := any.(type) {
+	case string:
+		write(lvl, fmt.Sprintf("%s", any))
+
+	default:
+		fmt.Println(v)
+	}
+
+}
+
+func write(lvl string, message string) (n int, err error) {
 
 	l := log{Level: lvl, Message: message}
 
@@ -30,17 +42,6 @@ func print(lvl string, message string) {
 	}
 
 	fmt.Println(string(jsonLog))
-
-}
-
-func switchType(any interface{}, lvl string) {
-
-	switch v := any.(type) {
-	case string:
-		print(lvl, fmt.Sprintf("%s", any))
-
-	default:
-		fmt.Println(v)
-	}
+	return lf.Write(jsonLog)
 
 }

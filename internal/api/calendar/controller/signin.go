@@ -2,16 +2,17 @@ package controller
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
+	"github.com/roger-russel/deploy-calendar/pkg/api"
 	"github.com/valyala/fasthttp"
 )
 
 // Create the JWT key used to create the signature
-var jwtKey = []byte("my_secret_key")
+var jwtKey = []byte(os.Getenv("JWT-KEY"))
 
 var users = map[string]string{
 	"user1": "password1",
@@ -69,8 +70,8 @@ func Signin(ctx *fasthttp.RequestCtx) {
 		return
 	}
 
-	ctx.SetContentType("application/json; charset=utf-8")
-
-	fmt.Fprintf(ctx, tokenString, &ctx.Request)
+	api.JsonOut(ctx, struct {
+		Token string `json:"token"`
+	}{Token: tokenString})
 
 }
