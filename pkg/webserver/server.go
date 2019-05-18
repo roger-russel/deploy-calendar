@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/fasthttp/router"
-	"github.com/google/logger"
+	"github.com/roger-russel/deploy-calendar/pkg/logger"
 	"github.com/valyala/fasthttp"
 )
 
@@ -17,6 +17,6 @@ func Start(port int, apiRouter *router.Router) {
 	flag.Parse()
 
 	if err := fasthttp.ListenAndServe(*addr, apiRouter.Handler); err != nil {
-		logger.Fatalf("Error in ListenAndServe: %s", err)
+		logger.Fatal("Error in ListenAndServe: %s", err)
 	}
 }
