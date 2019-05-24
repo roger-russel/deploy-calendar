@@ -1,0 +1,13 @@
+type User {
+  id: ID! @id
+  name: String!
+  email: @unique
+  password: String!
+  roles: [Roles!]!
+}
+
+type Roles {
+  id: ID! @id
+  name: String!
+  description: String!
+}

@@ -70,3 +70,14 @@ schema:
       - ../../../vendor
       - ../../../docs
       - ../../../dist
+
+#  - name: prisma
+#    path: ./
+#    commands:
+#      run:
+#        docker-compose up
+#    watcher:
+#      extensions:
+#      - yml
+#      paths:
+#      ./
