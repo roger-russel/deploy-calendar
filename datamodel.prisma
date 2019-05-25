@@ -1,12 +1,14 @@
 type User {
   id: ID! @id
   name: String!
-  email: @unique
+  email: String @uniue
   password: String!
-  roles: [Roles!]!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  roles: [Role!]! @relation(link: INLINE)
 }
 
-type Roles {
+type Role {
   id: ID! @id
   name: String!
   description: String!
