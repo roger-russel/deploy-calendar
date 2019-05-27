@@ -1,3 +1,5 @@
+# People Stuffs
+
 type User {
   id: ID! @id
   name: String!
@@ -12,4 +14,62 @@ type Role {
   id: ID! @id
   name: String!
   description: String!
+  permissions: [Permission!]! @relation(link: INLINE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  deletedAt: DateTime! @deletedAt
+}
+
+type Permission {
+  id: ID! @id
+  name: String!
+  description: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  deletedAt: DateTime! @deletedAt  
+}
+
+type Organization {
+  id: ID! @id
+  name: String!
+  users: [User!]! @relation(link: TABLE)  
+  projects: [Project!]! @relation(link: TABLE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  deletedAt: DateTime! @deletedAt  
+}
+
+type Project {
+  id: ID! @id
+  name: String!  
+  users: [User!]! @relation(link: INLINE)
+  events: [Event!]! @relation(link: INLINE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  deletedAt: DateTime! @deletedAt  
+}
+
+type Event {
+  id: ID! @id
+  name: String!
+  tags: [String]
+  context: Context! @relation(link: INLINE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Context {
+
+
+
+}
+
+type Calendar {
+  id: ID! @id
+  name: String!
+  description: String!
+  projects: [Project!]! @relation(link: INLINE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  deletedAt: DateTime! @deletedAt
 }
