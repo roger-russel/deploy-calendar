@@ -5,8 +5,7 @@ type User {
   password: String!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
-  roles: [Role!]! @relation(link: INLINE)
-  projects: [Project!]! @relation(link: INLINE)
+  roles: [Role!]! @relation(link: TABLE)
 }
 
 type Role {
@@ -23,15 +22,33 @@ type Project {
   hash: String! @uniue
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
-  users: [User!]! @relation(link: INLINE)
-  events: [Event!]! @relation(link: INLINE)
+  users: [User!]! @relation(link: TABLE)
+  events: [Event!]! @relation(link: TABLE)
+  deploys: [Deploy!]! @relation(link: TABLE)
+}
+
+type Deploy {
+  id: ID! @id
+  pullRequestUrl: String
+  version: String
+  context: Json
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
 
 type Event {
   id: ID! @id
   name: String!
-  tags: [String]
+  tags: Json
+  kind: Kind! @relation(link: INLINE)
   context: Json # Context information is up to you decides what should be here
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }
+
+type Kind {
+  id: ID! @id
+  name: S
+  description: String
+}
+

@@ -32,5 +32,6 @@ jwt-private:
 jwt-public:
 	@openssl ec -in ./keys/jwt_ecdsa_private_key.pem -pubout -out ./keys/jwt_ecdsa_public_key.pem
 
-prisma-deploy:
+.PHONY: prisma
+prisma:
 	@prisma deploy

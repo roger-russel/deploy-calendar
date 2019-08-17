@@ -8,11 +8,13 @@ import (
 	"github.com/valyala/fasthttp"
 )
 
-func SetJsonHeader(ctx *fasthttp.RequestCtx) {
+func setJsonHeader(ctx *fasthttp.RequestCtx) {
 	ctx.SetContentType("application/json; charset=utf-8")
 }
 
 func JsonOut(ctx *fasthttp.RequestCtx, v interface{}) {
+
+	setJsonHeader(ctx)
 
 	json, err := json.Marshal(v)
 

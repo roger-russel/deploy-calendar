@@ -10,6 +10,7 @@ schema:
       API_PORT: 8080
       LOGGER_VERBOSE: true
       LOGGER_PATH: ../../../log
+      NATS_CONN: ""
     commands: 
       run: 
         status: true
@@ -34,6 +35,7 @@ schema:
       API_PORT: 8081
       LOGGER_VERBOSE: true
       LOGGER_PATH: ../../../log
+      NATS_CONN: ""
     commands:
       run:
         status: true
@@ -70,14 +72,3 @@ schema:
       - ../../../vendor
       - ../../../docs
       - ../../../dist
-
-#  - name: prisma
-#    path: ./
-#    commands:
-#      run:
-#        docker-compose up
-#    watcher:
-#      extensions:
-#      - yml
-#      paths:
-#      ./
