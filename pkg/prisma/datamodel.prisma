@@ -1,0 +1,38 @@
+type User {
+  id: ID! @id
+  name: String!
+  email: String @uniue
+  password: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  roles: [Role!]! @relation(link: INLINE)
+  projects: [Project!]! @relation(link: INLINE)
+}
+
+type Role {
+  id: ID! @id
+  name: String!
+  description: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt  
+  users: [User!]!
+}
+
+type Project {
+  id: ID! @id
+  name: String!
+  hash: String! @uniue
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  users: [User!]!
+  deploys: [Deploy!]! @relation(link: INLINE)
+}
+    
+type Deploy {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  project: Project!
+  context: Json # Context information is up to you decides what should be here
+  version: String # Version of this deploy
+  pullRequestUrl: String # Pull Request URL is a simple way to see exactly what changes on it deply
+}

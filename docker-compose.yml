@@ -2,7 +2,7 @@ version: '3'
 services:
   prisma:
     container_name: deploy-calendar-prisma
-    image: prismagraphql/prisma:1.33
+    image: prismagraphql/prisma:1.34
     restart: always
     ports:
       - '4466:4466'
@@ -11,18 +11,27 @@ services:
         port: 4466
         databases:
           default:
-            connector: mongo
-            uri: mongodb://prisma:prisma@mongo
-  mongo:
-    container_name: deploy-calendar-mongo
-    image: mongo:3.6
+            connector: postgres
+            host: deploy-calendar-database
+            port: 5432
+            user: prisma
+            password: prisma
+  postgres:
+    container_name: deploy-calendar-database
+    image: postgres:10.3
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: prisma
-      MONGO_INITDB_ROOT_PASSWORD: prisma
-    ports:
-      - '27017:27017'
+      POSTGRES_USER: prisma
+      POSTGRES_PASSWORD: prisma
     volumes:
-      - mongo:/var/lib/mongo
+      - postgres:/var/lib/postgresql/data
+  nats:
+    container_name: deploy-calender-queue
+    image: nats:2.0.2-linux
+    restart: always
+    ports:
+      - '4222:4222' # client
+      - '8222:8222' # http managment port
+      - '6222:6222' # clustering port
 volumes:
-  mongo: ~
+  postgres: ~

@@ -19,7 +19,6 @@ How contribute with this project is very easy.
 
 ## Arch Dependencies(
 
-* [Localstack](https://github.com/localstack/localstack), An aws stack provider for development offilne.
 * [Prisma Cli](https://www.prisma.io), Prisma is a ORM and it's cli will be used a lot.
 
 ## DEV Designs
