@@ -15,7 +15,6 @@ type Role {
   description: String!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt  
-  users: [User!]!
 }
 
 type Project {
@@ -24,15 +23,15 @@ type Project {
   hash: String! @uniue
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
-  users: [User!]!
-  deploys: [Deploy!]! @relation(link: INLINE)
+  users: [User!]! @relation(link: INLINE)
+  events: [Event!]! @relation(link: INLINE)
 }
-    
-type Deploy {
+
+type Event {
   id: ID! @id
-  createdAt: DateTime! @createdAt
-  project: Project!
+  name: String!
+  tags: [String]
   context: Json # Context information is up to you decides what should be here
-  version: String # Version of this deploy
-  pullRequestUrl: String # Pull Request URL is a simple way to see exactly what changes on it deply
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
